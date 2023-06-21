@@ -1,0 +1,54 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/manage/manage",
+    "pages/shop/shop",
+    "pages/logs/logs"
+  ],
+  "subpackages": [
+    {
+        "root": "pag_manage",
+        "name": "管理对象",
+        "pages": [
+            "pages/chef/chef",
+            "pages/user/user",
+            "pages/meals/meals",
+            "pages/orders/orders"
+        ]
+    },
+    {
+        "root": "pag_shop",
+        "name": "食材商城",
+        "pages": [
+            "pages/ingredients/ingredients"
+        ]
+    }
+],
+  "tabBar": {
+    "list": [
+        {
+            "pagePath": "pages/manage/manage",
+            "text": "管理对象",
+            "iconPath": "pages/tabBar_images/noactive_object.png",
+            "selectedIconPath": "pages/tabBar_images/active_object.png"
+        },
+        {
+            "pagePath": "pages/shop/shop",
+            "text": "食材商城",
+            "iconPath": "pages/tabBar_images/noactive_shop.png",
+            "selectedIconPath": "pages/tabBar_images/active_shop.png"
+        }
+   
+    ]
+},
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffb8c6",
+    "navigationBarTitleText": "烧饭饭",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#efefef"
+},
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

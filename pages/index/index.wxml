@@ -1,0 +1,11 @@
+<!-- 登录页面 -->
+<view class="login-page">
+  <image class="background-image" src="./images/backGround.jpg"></image>
+  <view class="login-form">
+    <text class="title">登录</text>
+    <input class="input" placeholder="请输入账号" bindinput="handleInput"></input>
+    <input class="input" placeholder="请输入密码" type="password" bindinput="handlePasswordInput"></input>
+    <button class="button" bindtap="handleLogin">登录</button>
+  </view>
+</view>
+

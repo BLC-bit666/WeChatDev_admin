@@ -1,0 +1,20 @@
+<!-- 食材商城页面 -->
+<view class="market-page">
+  <!-- 食材分块 -->
+  <block wx:for="{{ingredientBlocks}}" wx:key="id">
+    <view class="ingredient-block">
+      <text class="block-title">{{item.blockTitle}}</text>
+      <!-- 食材列表 -->
+      <view class="ingredient-list">
+        <block wx:for="{{item.ingredients}}" wx:key="id">
+          <view class="ingredient-item">
+            <image class="ingredient-image" src="{{item.image}}"></image>
+            <text class="ingredient-name">{{item.name}}:单价:￥{{item.price}}-->{{item.availability ? '有货' : '缺货'}}</text>
+            <text class="ingredient-price"></text>
+            <text class="ingredient-availability"></text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>

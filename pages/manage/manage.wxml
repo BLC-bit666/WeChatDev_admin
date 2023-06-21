@@ -1,0 +1,63 @@
+<!--pages/orders/orders.wxml-->
+<!-- order.wxml -->
+<view class="order-page">
+  <view class="order-tabs">
+    <view class="order-tab {{ activeTab === 'chef' ? 'active' : '' }}" bindtap="switchTab" data-tab="chef">厨师</view>
+    <view class="order-tab {{ activeTab === 'meal' ? 'active' : '' }}" bindtap="switchTab" data-tab="meal">食材</view>
+    <view class="order-tab {{ activeTab === 'order' ? 'active' : '' }}" bindtap="switchTab" data-tab="order">订单</view>
+    <view class="order-tab {{ activeTab === 'user' ? 'active' : '' }}" bindtap="switchTab" data-tab="user">顾客</view>
+  </view>
+  <view class="order-list">
+    <!-- 根据选中的tab显示相应的订单列表 -->
+    <block wx:if="{{ activeTab === 'chef' }}">
+      <view class="chef-list">
+        <!-- 厨师项 -->
+        <view class="chef-item" wx:for="{{chefList}}" wx:key="id" bindtap="navigateToChefDetail" data-id="{{item.id}}">
+          <image class="avatar" src="{{item.avatarUrl}}"></image>
+          <text class="chef-name">{{item.name}}</text>
+          <text class="chef-specialty">{{item.specialty}}</text>
+          <text class="chef-status">{{item.status}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{ activeTab === 'meal' }}">
+      <view class="ingredients-page">
+        <view class="ingredients-list">
+          <!-- 食材项 -->
+          <view class="ingredient-item" wx:for="{{ingredientList}}" wx:key="id">
+            <text class="ingredient-name">{{item.name}}</text>
+            <text class="ingredient-quantity">剩余量: {{item.quantity}} kg</text>
+            <text class="ingredient-expiry">保质期: {{item.expiryDate}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{ activeTab === 'order' }}">
+      <!-- 订单页面 -->
+      <view class="order-list">
+        <!-- 订单项 -->
+        <view class="order-item" wx:for="{{orderList}}" wx:key="id">
+          <view class="order-info">
+            <text class="id">订单编号：{{item.id}}</text>
+            <text class="customer-nickname">顾客昵称：{{item.customer}}</text>
+            <text class="chef">厨师姓名：{{item.chef}}</text>
+            <text class="meal">套餐编号：{{item.meal}}</text>
+            <text class="amount">合计金额：￥{{item.amount}}</text>
+            <text class="completion-time">完成时间：{{item.completionTime}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{ activeTab === 'user' }}">
+      <view class="user-list">
+        <!-- 用户项 -->
+        <view class="user-item" wx:for="{{userList}}" wx:key="id">
+          <image class="avatar" src="{{item.avatarUrl}}"></image>
+          <text class="account">{{item.account}}</text>
+          <text class="credit">信用度：{{item.credit}}</text>
+          <text class="appointment">预约厨师：{{item.appointment ? '是' : '否'}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
